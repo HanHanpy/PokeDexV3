@@ -3,7 +3,10 @@ const client = new Discord.Client();
 const axios = require('axios');
 client.login(process.env.TOKEN);
 
-client.on('ready', () => console.log(`${client.user.tag} has logged in.`));
+client.on('ready', () => {
+    console.log(`${client.user.tag} has logged in.`)
+    client.user.setActivity("!p <pokemon> or <id>");
+});
 
 client.on('message', async message => {
     if(message.author.bot) return;
